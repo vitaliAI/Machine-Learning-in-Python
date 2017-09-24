@@ -56,9 +56,10 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 
 # Predicting and Training
-from sklearn.naive_bayes import GaussianNB
-classifier = GaussianNB()
+from sklearn.tree import DecisionTreeClassifier
+classifier = DecisionTreeClassifier(criterion='entropy', random_state=0)
 classifier.fit(X_train, y_train)
+
 
 # predicting the test set results
 y_pred = classifier.predict(X_test)
